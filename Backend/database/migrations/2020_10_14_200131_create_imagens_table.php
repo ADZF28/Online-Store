@@ -14,7 +14,7 @@ class CreateImagensTable extends Migration
     public function up()
     {
         Schema::create('imagens', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_tabla');
             $table->string('ruta');
             $table->string('tabla');
         });
