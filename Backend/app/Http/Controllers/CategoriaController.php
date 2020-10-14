@@ -14,7 +14,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //
+        $datos=Categoria::all();
+        return response()->json(['result'=>$datos, 'code'=>'201']);
     }
 
     /**
@@ -24,7 +25,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+      
     }
 
     /**
@@ -35,7 +36,11 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=new Categoria();
+        $datos->categoria=$request->categoria;
+
+        $datos->save();
+        return response()->json(['result'=>"Datos guardados", 'code'=>'201']);
     }
 
     /**
@@ -67,9 +72,13 @@ class CategoriaController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, $id)
     {
-        //
+        $datos=Categoria::find($id);
+        $datos->categoria=$request->categoria;
+
+        $datos->update();
+        return response()->json(['result'=>"Datos actualizados", 'code'=>'201']);
     }
 
     /**
@@ -78,8 +87,10 @@ class CategoriaController extends Controller
      * @param  \App\Models\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categoria $categoria)
+    public function destroy($id)
     {
-        //
+        $datos=Categoria::find($id);
+        $datos->delete();
+        return response()->json(['result'=>"Dato eliminado", 'code'=>'201']);
     }
 }

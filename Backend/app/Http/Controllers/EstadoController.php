@@ -14,7 +14,8 @@ class EstadoController extends Controller
      */
     public function index()
     {
-        //
+        $datos=Estado::all();
+        return response()->json(['result'=>$datos, 'code'=>'201']);
     }
 
     /**
@@ -35,7 +36,11 @@ class EstadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=new Estado();
+        $datos->estado=$request->estado;
+
+        $datos->save();
+        return response()->json(['result'=>"Datos guardados", 'code'=>'201']);
     }
 
     /**
@@ -67,9 +72,13 @@ class EstadoController extends Controller
      * @param  \App\Models\Estado  $estado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Estado $estado)
+    public function update(Request $request, $id)
     {
-        //
+        $datos=Estado::find($id);
+        $datos->estado=$request->estado;
+
+        $datos->update();
+        return response()->json(['result'=>"Datos actualizados", 'code'=>'201']);
     }
 
     /**
@@ -78,8 +87,10 @@ class EstadoController extends Controller
      * @param  \App\Models\Estado  $estado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Estado $estado)
+    public function destroy( $id)
     {
-        //
+        $datos=Estado::find($id);
+        $datos->delete();
+        return response()->json(['result'=>"Dato eliminado", 'code'=>'201']);
     }
 }

@@ -14,7 +14,8 @@ class MarcaController extends Controller
      */
     public function index()
     {
-        //
+        $datos=Marca::all();
+        return response()->json(['result'=>$datos, 'code'=>'201']);
     }
 
     /**
@@ -35,7 +36,11 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=new Marca();
+        $datos->estado=$request->estado;
+
+        $datos->save();
+        return response()->json(['result'=>"Datos guardados", 'code'=>'201']);
     }
 
     /**
@@ -67,9 +72,13 @@ class MarcaController extends Controller
      * @param  \App\Models\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Marca $marca)
+    public function update(Request $request,  $id)
     {
-        //
+        $datos= Marca::find($id);
+        $datos->estado=$request->estado;
+
+        $datos->update();
+        return response()->json(['result'=>"Datos guardados", 'code'=>'201']);
     }
 
     /**
@@ -78,8 +87,10 @@ class MarcaController extends Controller
      * @param  \App\Models\Marca  $marca
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Marca $marca)
+    public function destroy($id)
     {
-        //
+        $datos=Marca::find($id);
+        $datos->delete();
+        return response()->json(['result'=>"Dato eliminado", 'code'=>'201']);
     }
 }

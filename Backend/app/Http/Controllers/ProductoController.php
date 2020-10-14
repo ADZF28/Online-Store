@@ -14,7 +14,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        $datos=Producto::all();
+        return response()->json(['result'=>$datos, 'code'=>'201']);
     }
 
     /**
@@ -24,7 +25,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +36,17 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=new Producto();
+        $datos->id_categoria=$request->id_categoria;
+        $datos->id_marca=$request->id_marca;
+        $datos->id_estado=$request->id_estado;
+        $datos->nombre=$request->nombre;
+        $datos->descripcion=$request->descripcion;
+        $datos->stock=$request->stock;
+        $datos->precio=$request->precio;
+
+        $datos->save();
+        return response()->json(['result'=>"Datos guardados", 'code'=>'201']);
     }
 
     /**
@@ -46,7 +57,7 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        //
+        
     }
 
     /**
@@ -67,9 +78,19 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, $id)
     {
-        //
+        $datos=Producto::find($id);
+        $datos->id_categoria=$request->id_categoria;
+        $datos->id_marca=$request->id_marca;
+        $datos->id_estado=$request->id_estado;
+        $datos->nombre=$request->nombre;
+        $datos->descripcion=$request->descripcion;
+        $datos->stock=$request->stock;
+        $datos->precio=$request->precio;
+
+        $datos->update();
+        return response()->json(['result'=>"Datos actualizados", 'code'=>'201']);
     }
 
     /**
@@ -78,8 +99,10 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Producto $producto)
+    public function destroy( $id)
     {
-        //
+        $datos=Producto::find($id);
+        $datos->delete();
+        return response()->json(['result'=>"Dato eliminado", 'code'=>'201']);
     }
 }

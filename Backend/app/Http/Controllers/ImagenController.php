@@ -14,7 +14,8 @@ class ImagenController extends Controller
      */
     public function index()
     {
-        //
+        $datos=Imagen::all();
+        return response()->json(['result'=>$datos, 'code'=>'201']);
     }
 
     /**
@@ -35,7 +36,13 @@ class ImagenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=new Imagen();
+        $datos->ruta=$request->ruta;
+        $datos->tabla=$request->tabla;
+        $datos->id_tabla=$request->id_tabla;
+
+        $datos->save();
+        return response()->json(['result'=>"Datos guardados", 'code'=>'201']);
     }
 
     /**
@@ -67,9 +74,15 @@ class ImagenController extends Controller
      * @param  \App\Models\Imagen  $imagen
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Imagen $imagen)
+    public function update(Request $request, $id)
     {
-        //
+        $datos=Imagen::find($id);
+        $datos->ruta=$request->ruta;
+        $datos->tabla=$request->tabla;
+        $datos->id_tabla=$request->id_tabla;
+
+        $datos->update();
+        return response()->json(['result'=>"Datos actualizados", 'code'=>'201']);
     }
 
     /**
@@ -78,8 +91,10 @@ class ImagenController extends Controller
      * @param  \App\Models\Imagen  $imagen
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Imagen $imagen)
+    public function destroy( $id)
     {
-        //
+        $datos=Imagen::find($id);
+        $datos->delete();
+        return response()->json(['result'=>"Dato eliminado", 'code'=>'201']);
     }
 }
