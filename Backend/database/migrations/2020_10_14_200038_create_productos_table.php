@@ -14,7 +14,14 @@ class CreateProductosTable extends Migration
     public function up()
     {
         Schema::create('productos', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_categoria');
+            $table->unsignedBigInteger('id_marca');
+            $table->unsignedBigInteger('id_estado');
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->boolean('stock');
+            $table->float('precio');
             $table->timestamps();
         });
     }
