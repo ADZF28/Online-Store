@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Marca extends Model
 {
-    use HasFactory;
+    protected $table='marcas';
+    public $timestamps = false;
+    protected $primaryKey ='id';
+
+    protected $fillable = [
+        'marca'
+    ];
 }

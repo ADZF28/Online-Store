@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Noticia extends Model
 {
-    use HasFactory;
+    
+    protected $table='noticias';
+    public $timestamps = false;
+    protected $primaryKey ='id';
+
+    protected $fillable = [
+        'titulo',
+        'descripcion'
+    ];
+    
 }

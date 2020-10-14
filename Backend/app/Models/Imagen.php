@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Imagen extends Model
 {
-    use HasFactory;
+    protected $table='imagens';
+    public $timestamps = false;
+
+    protected $fillable = [
+        'ruta',
+        'tabla',
+        'id_tabla'
+    ];
 }
