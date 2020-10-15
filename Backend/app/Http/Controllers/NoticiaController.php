@@ -14,7 +14,8 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        //
+        $datos=Noticia::all();
+        return response()->json(['result'=>$datos, 'code'=>'201']);
     }
 
     /**
@@ -35,7 +36,11 @@ class NoticiaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos=new Noticia();
+        $datos->titulo=$request->titulo;
+        $datos->descripcion=$request->descripcion;
+        $datos->save();
+        return response()->json(['result'=>"Datos guardados", 'code'=>'201']);
     }
 
     /**
@@ -67,9 +72,13 @@ class NoticiaController extends Controller
      * @param  \App\Models\Noticia  $noticia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Noticia $noticia)
+    public function update(Request $request, $id)
     {
-        //
+        $datos=Noticia::find($id);
+        $datos->titulo=$request->titulo;
+        $datos->descripcion=$request->descripcion;
+        $datos->update();
+        return response()->json(['result'=>"Datos actualizados", 'code'=>'201']);
     }
 
     /**
@@ -78,8 +87,10 @@ class NoticiaController extends Controller
      * @param  \App\Models\Noticia  $noticia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Noticia $noticia)
+    public function destroy( $id)
     {
-        //
+        $datos=Noticia::find($id);
+        $datos->delete();
+        return response()->json(['result'=>"Dato eliminado", 'code'=>'201']);
     }
 }
