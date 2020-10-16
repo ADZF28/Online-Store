@@ -42,7 +42,7 @@ max-width: 80%;
 
 }
 
-.imagenes-transformables:hover .fade{
+.imagenes-transformables:hover .filo{
   background-color: rgba(0,0,0,.4);
   width: auto; 
   height:100%;
@@ -52,7 +52,7 @@ max-width: 80%;
   
 }
 
-.imagenes-transformables:hover .fade .border-text{
+.imagenes-transformables:hover .filo .border-text{
   display:flex !important;
   align-items: center  !important;
   justify-content: center  !important;
@@ -62,10 +62,10 @@ max-width: 80%;
 }
 
 
-.imagenes-transformables .fade .border-text{
+.imagenes-transformables .filo .border-text{
   border: 1px solid white;
    width:100%;
-  height: 90%;
+  height: 100%;
   margin:2px;
   display:none;
   font-family: sans-serif;
