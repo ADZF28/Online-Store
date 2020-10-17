@@ -36,11 +36,17 @@ class ImagenController extends Controller
      */
     public function store(Request $request)
     {
+        $file=$request->file('file-7');
+        $nombre=$file->getClientMimeType();
+        $tipoImagen=str_replace('image/', '.',$nombre);
+        $fileName=uniqid() . $tipoImagen;
+        $path=public_path().'/imagenes';
+        $file->move($path,$fileName);
+     
         $datos=new Imagen();
-        $datos->ruta=$request->ruta;
+        $datos->ruta=$fileName;
         $datos->tabla=$request->tabla;
         $datos->id_tabla=$request->id_tabla;
-
         $datos->save();
         return response()->json(['result'=>"Datos guardados", 'code'=>'201']);
     }

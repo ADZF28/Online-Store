@@ -4,8 +4,6 @@ body{
 }
 .contenedor{
   padding:0;
-width:100%;
-  
   
 }
 .contenedor .carrusel{
@@ -61,7 +59,13 @@ max-width: 80%;
 
 }
 
-
+.aside1 {
+    padding: 20px;
+    width: 170px;
+    background-color: #434A54;
+    color: #fff;
+  
+}   
 .imagenes-transformables .filo .border-text{
   border: 1px solid white;
    width:100%;
@@ -78,6 +82,20 @@ max-width: 80%;
 
 
 
+//aside
+.sidebar {
+  padding: 10px;
+  width: 250px;
+  margin-top: 70px;
+  background-color: #fff;
+  color: #434A54;
+  float: left;
+  position: relative;
+}
 
+
+ 
+  
+    
 
 
