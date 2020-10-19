@@ -8,6 +8,8 @@ import { ProfilepageComponent } from "./pages/examples/profilepage/profilepage.c
 import { RegisterpageComponent } from "./pages/examples/registerpage/registerpage.component";
 import { LandingpageComponent } from "./pages/examples/landingpage/landingpage.component";
 import { HomeComponent } from './pages/user/home/home.component';
+import { NosotrosComponent } from './pages/user/nosotros/nosotros.component';
+
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -15,7 +17,8 @@ const routes: Routes = [
   { path: "profile", component: ProfilepageComponent },
   { path: "register", component: RegisterpageComponent },
   { path: "landing", component: LandingpageComponent },
-  { path: "home", component: HomeComponent }
+  { path: "home", component: HomeComponent },
+  { path: "nosotros", component: NosotrosComponent }
 ];
 
 @NgModule({

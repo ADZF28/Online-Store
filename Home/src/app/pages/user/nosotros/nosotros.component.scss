@@ -1,0 +1,137 @@
+body{
+    padding:0;
+  
+  }
+  .contenedor{
+    padding:0;
+    
+  }
+  .contenedor .carrusel{
+    padding: 0;
+  display: flex;
+  
+    overflow:hidden;
+  
+  }
+  .nav-item:hover .nav-link {
+    font-size: 1.275rem;
+    font-weight: bold;
+    color: rgb(24, 51, 20);
+  
+  }
+  .imagenes-transformables{
+    height: 400px;
+    min-width:1%;
+    width: 33.33%;
+    max-width:50%;
+  
+    
+    transition: all 1s ease;
+    background-size: cover;
+    background-position:center center;
+    
+   
+      
+  }
+  
+  .imagenes-transformables:hover {
+  max-width: 80%;
+   min-width:50%;
+    transition: min-width 1s ease;
+  -webkit-transition: min-width 1s ease;
+    -moz-transition: min-width 1s ease;
+   -ms-transition: min-width 1s ease;
+  -o-transition: min-width 1s ease;
+  
+  }
+  
+  .imagenes-transformables:hover .filo{
+    background-color: rgba(0,0,0,.4);
+    width: auto; 
+    height:100%;
+    transition: background-color .5s ease;
+       padding:1em;
+    display:flex;
+    
+  }
+  
+  .imagenes-transformables:hover .filo .border-text{
+    display:flex !important;
+    align-items: center  !important;
+    justify-content: center  !important;
+    font-size: 2.2rem !important;
+    transition: font-size 1s ease !important;
+  
+  }
+  
+  .aside1 {
+      padding: 20px;
+      width: 170px;
+      background-color: #434A54;
+      color: #fff;
+    
+  }   
+  .imagenes-transformables .filo .border-text{
+    border: 1px solid white;
+     width:100%;
+    height: 100%;
+    margin:2px;
+    display:none;
+    font-family: sans-serif;
+    color: white;
+    font-size: 2rem;
+    cursor:pointer;
+    text-decoration: none;
+  }
+  
+  
+  
+  
+  //aside
+  .sidebar {
+    padding: 10px;
+    width: auto;
+    margin-top: 70px;
+    background-color: #fff;
+    color: #434A54;
+    float: left;
+    position: relative;
+  }
+  
+  //collapse
+  
+  $duration: .5s;
+  
+  // Collapse
+  .cajaWrapper {
+    max-height: 0;
+    transform: scaleY(0);
+    transform-origin: 50% 0;
+    transition: max-height 0s $duration, transform $duration ease;
+  }
+  // Expand
+  .cajaToggle:hover + .cajaWrapper,
+  .cajaWrapper:hover {
+    max-height: 9999px;
+    transform: scaleY(1);
+    transition: transform $duration ease;
+  }
+  
+  // Demo
+  .caja {
+    border: 1px solid #EEE;
+    border-bottom-color: #DDD;
+    width: 200px;
+  }
+  .cajaToggle {
+    background: linear-gradient(#FFF, #F7F7F7);
+    padding: .5em 1em;
+  }
+  .cajaContent {
+    padding: 1em;
+  }
+    
+      
+  
+  
+  
