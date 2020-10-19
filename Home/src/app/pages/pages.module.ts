@@ -22,6 +22,8 @@ import { ProfilepageComponent } from "./examples/profilepage/profilepage.compone
 import { RegisterpageComponent } from "./examples/registerpage/registerpage.component";
 import { LandingpageComponent } from "./examples/landingpage/landingpage.component";
 import { HomeComponent } from './user/home/home.component';
+import { NosotrosComponent } from './user/nosotros/nosotros.component';
+import { ProductosComponent } from './user/productos/productos.component';
 
 @NgModule({
   imports: [
@@ -47,7 +49,9 @@ import { HomeComponent } from './user/home/home.component';
     ProfilepageComponent,
     RegisterpageComponent,
     LandingpageComponent,
-    HomeComponent
+    HomeComponent,
+    NosotrosComponent,
+    ProductosComponent
   ],
   exports: [
     IndexComponent,

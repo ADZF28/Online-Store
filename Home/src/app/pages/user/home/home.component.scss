@@ -13,7 +13,12 @@ display: flex;
   overflow:hidden;
 
 }
+.nav-item:hover .nav-link {
+  font-size: 1.275rem;
+  font-weight: bold;
+  color: rgb(24, 51, 20);
 
+}
 .imagenes-transformables{
   height: 400px;
   min-width:1%;
@@ -85,7 +90,7 @@ max-width: 80%;
 //aside
 .sidebar {
   padding: 10px;
-  width: 250px;
+  width: auto;
   margin-top: 70px;
   background-color: #fff;
   color: #434A54;
@@ -93,8 +98,38 @@ max-width: 80%;
   position: relative;
 }
 
+//collapse
 
- 
+$duration: .5s;
+
+// Collapse
+.cajaWrapper {
+  max-height: 0;
+  transform: scaleY(0);
+  transform-origin: 50% 0;
+  transition: max-height 0s $duration, transform $duration ease;
+}
+// Expand
+.cajaToggle:hover + .cajaWrapper,
+.cajaWrapper:hover {
+  max-height: 9999px;
+  transform: scaleY(1);
+  transition: transform $duration ease;
+}
+
+// Demo
+.caja {
+  border: 1px solid #EEE;
+  border-bottom-color: #DDD;
+  width: 200px;
+}
+.cajaToggle {
+  background: linear-gradient(#FFF, #F7F7F7);
+  padding: .5em 1em;
+}
+.cajaContent {
+  padding: 1em;
+}
   
     
 
