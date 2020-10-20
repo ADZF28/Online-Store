@@ -130,6 +130,19 @@ body{
   .cajaContent {
     padding: 1em;
   }
+
+  .contenedorImg{
+    position: relative;
+    //display: inline-block;
+    text-align: center;
+}
+.centrado{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
     
       
   
